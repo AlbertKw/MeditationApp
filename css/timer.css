@@ -1,0 +1,81 @@
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-controlls {
+  position: absolute;
+  color: #fffdfd;
+  font-size: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.control-buttons button {
+  background: none;
+  border: none;
+  font-size: 4vh;
+  padding: 0 5px;
+  color: #fffdfd;
+}
+
+.minutes-button {
+  padding-right: 20px;
+}
+
+.controlls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-stop-button {
+  margin-top: 10px;
+  background: transparent;
+  width: 0;
+  height: 6vh;
+  box-sizing: border-box;
+  border-width: 3vh 0 3vh 5vh;
+  border-color: transparent transparent transparent #fffdfd;
+  transition: 250ms all ease;
+}
+
+.start-stop-button.paused {
+  border-style: double;
+  border-width: 0px 0 0px 5vh; 
+}
+
+button[data-setter], .start-stop-button {
+  cursor: pointer;
+}
+
+button[data-setter]:hover, .start-stop-button:hover {
+  opacity: 0.5;
+}
+
+.timer-base, .timer-progress {
+  fill: none;
+  stroke: #dedede;
+  stroke-width: 0.4em;
+  opacity: 0.5;
+}
+
+.timer-progress {
+  stroke: #fffdfd;
+  opacity: 1;
+  transition: 500ms stroke-dashoffset ease;
+}
+
+.timer-pointer {
+  fill: white;
+  stroke: #000;
+  stroke-width: 0.1em;
+  transition: 500ms transform ease;
+}

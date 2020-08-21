@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#background-video {
+  position: fixed;
+  width: auto;
+  height: auto;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.timer {
+  position: relative;
+}
+
+.timer-column {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mood-picker {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mood-picker button {
+  margin-top: 10px;
+  cursor: pointer;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background: transparent;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+button.forest {
+  background-image: url(../images/forest.svg);
+  background-color: #0ef70e;
+}
+
+button.sea {
+  background-image: url(../images/beach.svg);
+  background-color: #ffe725;
+}
+
+button.rain {
+  background-image: url(../images/rain.svg);
+  background-color: #66c6ff;
+}
+
+button.wind {
+  background-image: url(../images/wind.svg);
+  background-color: #8dc479;
+}
+
+button.chimney {
+  background-image: url(../images/chimney.svg);
+  background-color: #f26e45;
+}
+
+@media only screen and (min-width: 768px) {
+  .mood-picker {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .mood-picker {
+    flex-direction: column;
+  }
+}
