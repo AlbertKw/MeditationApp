@@ -7,7 +7,7 @@ const video = document.getElementById('background-video');
 const audio = document.getElementById('background-audio');
 const moodBtns = document.querySelectorAll('.mood-picker button');
 const activeBtns = Array.from(setterBtns).concat(Array.from(moodBtns))
-let paused = true;    // Get rid of global variables
+let paused = true;
 let firstCallOfGivenTime = true;
 let intervalId = 0;
 
@@ -17,7 +17,7 @@ const changeTime = (function() {
   splitedTime = remainTime.innerHTML.split(":").map(el => parseInt(el));
   seconds = parseInt(seconds);
   if (seconds === 60) {
-    splitedTime[0] += 1;                                      // Shorten these if statements
+    splitedTime[0] += 1;                                      //TODO: Shorten these if statements
   } else if (seconds === -60 && splitedTime[0] > 0) {
     splitedTime[0] -= 1;
   } else if (splitedTime[1] === 59 && seconds === 1) {
@@ -69,7 +69,7 @@ const startStopTimer = (() => {
   let offsets = [];
   return () => {
     if (firstCallOfGivenTime) {
-      offsets = calculateOffsetsToBarAnim(); // musi obliczać to tylko 1 raz a nie po kadym wznowieniu po zatrzymaniu
+      offsets = calculateOffsetsToBarAnim();
       firstCallOfGivenTime = false;
     }
     if(paused) {
