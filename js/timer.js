@@ -12,27 +12,15 @@ let firstCallOfGivenTime = true;
 let intervalId = 0;
 
 const changeTime = (function() {
-  let splitedTime = [];
+  let timeInSec = 0;
+  let newTime = [];
   return (seconds) => {
-  splitedTime = remainTime.innerHTML.split(":").map(el => parseInt(el));
-  seconds = parseInt(seconds);
-  if (seconds === 60) {
-    splitedTime[0] += 1;                                      //TODO: Shorten these if statements
-  } else if (seconds === -60 && splitedTime[0] > 0) {
-    splitedTime[0] -= 1;
-  } else if (splitedTime[1] === 59 && seconds === 1) {
-    splitedTime[0] += 1;
-    splitedTime[1] = 0;
-  } else if (splitedTime[1] >= 0 && seconds === 1) {
-    splitedTime[1] += 1;
-  } else if (splitedTime[1] > 0 && seconds === -1) {
-    splitedTime[1] += -1;
-  } else if (splitedTime[0] > 0 && seconds === -1 && splitedTime[1] === 0) {
-    splitedTime[0] -= 1;
-    splitedTime[1] = 59;
+    seconds = parseInt(seconds);
+    timeInSec = remainTime.innerHTML.split(":").map(el => parseInt(el)).reduce((a, b) => a*60 + b);
+    timeInSec += seconds;
+    newTime = [Math.floor(timeInSec / 60), timeInSec % 60];
+    return newTime.map(el => ("0" + el.toString()).slice(-2)).join(":");
   }
-  return splitedTime.map(el => ("0" + el.toString()).slice(-2)).join(":");
-}
 })();
 
 const updateRemainTime = newTime => {
